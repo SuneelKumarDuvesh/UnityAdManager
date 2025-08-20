@@ -39,8 +39,10 @@ To get the system running in your scene, follow these steps:
 
 Create Manager GameObject: Create a new, empty GameObject in your main scene and name it `AdsManager.`
 
-Add All Scripts: Select the `AdsManager` GameObject. In the Inspector, use the `Add Component` button to add all four of the main ad scripts:
+Add All Scripts: Select the `AdsManager` GameObject. In the Inspector, use the `Add Component` button to add all five of the main ad scripts:
 
+* `AdInitializer`
+  
 * `AdsManager`
 
 * `RewardedAdScript`
