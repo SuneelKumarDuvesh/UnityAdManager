@@ -56,19 +56,23 @@ Your final setup should look like this:
 The system is now ready to use!
 
 How to Use
+
 The AdsManager is a singleton, so you can access it from any script using AdsManager.Instance.
 
 Example 1: Showing an Interstitial Ad
 Create a simple handler script and attach it to your button.
 
 // In a script like "LevelEndUI.cs"
-using UnityEngine;
 
+using UnityEngine;
 public class LevelEndUI : MonoBehaviour
 {
+
     // Link this method to a button's OnClick() event in the Inspector.
     public void OnNextLevelButtonClicked()
+    
     {
+    
         // Simply ask the AdsManager to show an interstitial ad.
         AdsManager.Instance.ShowInterstitial();
         
@@ -76,15 +80,21 @@ public class LevelEndUI : MonoBehaviour
     }
 }
 
+
+
 Example 2: Showing a Rewarded Ad (Recommended Pattern)
 Create a reusable handler script for your rewarded ad buttons.
 
+
 // In a script like "AdButtonHandler.cs"
+
 using UnityEngine;
 
 public class AdButtonHandler : MonoBehaviour
 {
+
     // Link this method to your "Get Coins" button's OnClick() event.
+    
     public void OnWatchAdForCoins()
     {
         // Tell the AdsManager to show an ad and what the reward is.
