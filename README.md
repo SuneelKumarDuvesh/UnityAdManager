@@ -1,4 +1,4 @@
-Unity Ad Monetization System
+    Unity Ad Monetization System
 A centralized, modular, and scalable ad management system for Unity. This package provides a clean API to easily implement rewarded, interstitial, and banner ads using the Unity Ads SDK, designed to be robust for production and flexible for rapid development.
 
 Features
@@ -19,37 +19,37 @@ Unity 2021.3 LTS or newer.
 
 Unity Advertisement Legacy Package: This system is built on the Unity Ads SDK. You must install it from the Unity Package Manager.
 
-Go to Window > Package Manager.
+Go to `Window > Package Manager`.
 
-Select Unity Registry.
+Select `Unity Registry.`
 
-Search for Advertisement Legacy and click Install.
+Search for `Advertisement Legacy` and `click Install.`
 
 Installation
 Go to the Releases page of this GitHub repository.
 
-Download the latest AdSystem_vX.X.X.unitypackage file.
+Download the latest `UnityAdManager_vX.X.X.unitypackage` file.
 
 Open your Unity project.
 
-Import the package by going to Assets > Import Package > Custom Package... and selecting the downloaded file.
+Import the package by going to `Assets > Import Package > Custom Package...` and selecting the `downloaded file.`
 
 Setup in Unity
 To get the system running in your scene, follow these steps:
 
-Create Manager GameObject: Create a new, empty GameObject in your main scene and name it _AdsManager.
+Create Manager GameObject: Create a new, empty GameObject in your main scene and name it `AdsManager.`
 
-Add All Scripts: Select the _AdsManager GameObject. In the Inspector, use the Add Component button to add all four of the main ad scripts:
+Add All Scripts: Select the `AdsManager` GameObject. In the Inspector, use the `Add Component` button to add all four of the main ad scripts:
 
-AdsManager
+* `AdsManager`
 
-RewardedAdScript
+* `RewardedAdScript`
 
-InterstitialAdScript
+* `InterstitialAdScript`
 
-BannerAdScript
+* `BannerAdScript`
 
-Assign References: The AdsManager component has three empty fields. Click and drag the name of each corresponding script component from the Inspector into its correct slot.
+Assign References: The `AdsManager` component has three empty fields. Click and drag the name of each corresponding script component from the Inspector into its correct slot.
 
 Your final setup should look like this:
 
@@ -58,15 +58,15 @@ The system is now ready to use!
 How to Use
 
 
-The AdsManager is a singleton, so you can access it from any script using AdsManager.Instance.
+The `AdsManager` is a singleton, so you can access it from any script using `AdsManager.Instance.`
 
 Example 1: Showing an Interstitial Ad
 Create a simple handler script and attach it to your button.
+
+```
 // In a script like "LevelEndUI.cs"
-
-
 using UnityEngine;
-public class LevelEndUI : MonoBehaviour
+public class LevelEndUI: MonoBehaviour
 {
 
     // Link this method to a button's OnClick() event in the Inspector.
@@ -81,14 +81,12 @@ public class LevelEndUI : MonoBehaviour
     }
 }
 
-
+```
 
 Example 2: Showing a Rewarded Ad (Recommended Pattern)
 Create a reusable handler script for your rewarded ad buttons.
+```
 In a script like "AdButtonHandler.cs"
-
-
-
 using UnityEngine;
 public class AdButtonHandler : MonoBehaviour
 {
@@ -119,37 +117,21 @@ public class AdButtonHandler : MonoBehaviour
         // Your game logic to give the player 10 gems.
     }
 }
+```
 
 API Overview
 These are the main public methods available in the AdsManager:
 
-Method
+| Method                                  | Description                                                                                             |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `ShowRewarded(Action onRewardGranted)`  | **(Recommended)** Shows a rewarded ad and executes the specific `onRewardGranted` function on completion. |
+| `ShowRewarded()`                        | Shows a rewarded ad without a specific callback. Fires the global `OnRewardedAdCompleted` event.        |
+| `ShowInterstitial()`                    | Shows a standard interstitial ad.                                                                       |
+| `ShowBanner(BannerPosition position)`   | Shows a banner ad at a specific, customized screen position.                                            |
+| `ShowBanner()`                          | Shows a banner ad at the default position set in the `BannerAdScript` Inspector.                        |
+| `HideBanner()`                          | Hides the currently visible banner ad.                                                                  |
 
-Description
 
-ShowRewarded(Action onRewardGranted)
-
-(Recommended) Shows a rewarded ad and executes the specific onRewardGranted function on completion.
-
-ShowRewarded()
-
-Shows a rewarded ad without a specific callback. Fires the global OnRewardedAdCompleted event.
-
-ShowInterstitial()
-
-Shows a standard interstitial ad.
-
-ShowBanner(BannerPosition position)
-
-Shows a banner ad at a specific, customized screen position.
-
-ShowBanner()
-
-Shows a banner ad at the default position set in the BannerAdScript Inspector.
-
-HideBanner()
-
-Hides the currently visible banner ad.
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
