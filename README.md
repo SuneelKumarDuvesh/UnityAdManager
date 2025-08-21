@@ -1,7 +1,7 @@
-    Unity Ad Monetization System
+  ###  Unity Ad Monetization System
 A centralized, modular, and scalable ad management system for Unity. This package provides a clean API to easily implement rewarded, interstitial, and banner ads using the Unity Ads SDK, designed to be robust for production and flexible for rapid development.
 
-Features
+### Features
 ✨ Centralized Management: A single AdsManager singleton acts as the main entry point for all ad calls, keeping your code clean and organized.
 
 🧩 Modular Architecture: Each ad type (Rewarded, Interstitial, Banner) is handled by its own specialized script, making the system easy to maintain and extend.
@@ -65,7 +65,7 @@ The `AdsManager` is a singleton, so you can access it from any script using `Ads
 Example 1: Showing an Interstitial Ad
 Create a simple handler script and attach it to your button.
 
-```
+```csharp
 // In a script like "LevelEndUI.cs"
 using UnityEngine;
 public class LevelEndUI: MonoBehaviour
@@ -87,7 +87,7 @@ public class LevelEndUI: MonoBehaviour
 
 Example 2: Showing a Rewarded Ad (Recommended Pattern)
 Create a reusable handler script for your rewarded ad buttons.
-```
+```csharp
 In a script like "AdButtonHandler.cs"
 using UnityEngine;
 public class AdButtonHandler : MonoBehaviour
